@@ -1,0 +1,10 @@
+C:\Projects\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\bin\Debug\gsd311-SemesterProject.exe.config
+C:\Projects\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\obj\Debug\gsd311-SemesterProject.csprojResolveAssemblyReference.cache
+C:\Projects\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\obj\Debug\gsd311_SemesterProject.Form1.resources
+C:\Projects\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\obj\Debug\gsd311_SemesterProject.Properties.Resources.resources
+C:\Projects\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\obj\Debug\gsd311-SemesterProject.csproj.GenerateResource.Cache
+C:\Projects\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\bin\Debug\gsd311-SemesterProject.exe
+C:\Projects\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\bin\Debug\gsd311-SemesterProject.pdb
+C:\Projects\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\obj\Debug\gsd311-SemesterProject.exe
+C:\Projects\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\obj\Debug\gsd311-SemesterProject.pdb
+C:\Projects\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\obj\Debug\gsd311_SemesterProject.Form2.resources
