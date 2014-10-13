@@ -77,7 +77,7 @@ namespace gsd311_SemesterProject
                 con.Open();
                 try
                 {
-                    using (SqlCommand command = new SqlCommand("Select Courses.CourseName, EnrolledCourses.CourseGrade, Courses.CourseNum, Courses.CreditHours, Courses.CourseType from Courses, EnrolledCourses WHERE Courses.id = EnrolledCourses.CourseId and EnrolledCourses.StudentId = " + StudentId, con))
+                    using (SqlCommand command = new SqlCommand("Select Courses.CourseName, EnrolledCourses.CourseGrade, Courses.CourseNum, Courses.CreditHours, Courses.CourseType, Courses.id from Courses, EnrolledCourses WHERE Courses.id = EnrolledCourses.CourseId and EnrolledCourses.StudentId = " + StudentId, con))
                     {
                         SqlDataReader reader = command.ExecuteReader();
                         while (reader.Read())
@@ -89,6 +89,7 @@ namespace gsd311_SemesterProject
                             tempCourse.CourseNum = reader.GetString(2);
                             tempCourse.CreditHours = reader.GetInt32(3);
                             tempStr = reader.GetString(4);
+                            tempCourse.CourseId = reader.GetInt32(5);
 
                             if (tempStr.Equals("MathSci"))
                             {
@@ -264,6 +265,113 @@ namespace gsd311_SemesterProject
             }
             return count;
 
+        }
+
+        public void writeStudentInfo(Student tempStudent)
+        {
+            string tempFirstName = tempStudent.FirstName;
+            string tempLastName = tempStudent.LastName;
+            double tempGPA = tempStudent.GPA;
+            string tempStudy = tempStudent.APStudy.ToString();
+            string tempStudentNum = tempStudent.StudentNum;
+            string tempStatus = tempStudent.Eligable.ToString();
+            Course[] tempCourses = tempStudent.getCourseList().ToArray();
+            string tempCourseNum;
+            int studentCount = getTotalStudents();
+            int tempStudentId = tempStudent.StudentId;
+            double tempGPA2;
+
+            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString1))
+            {
+                con.Open();
+                try
+                {
+                    using (SqlCommand command = new SqlCommand(
+                    "INSERT INTO Student (Fname, LName, GPA, Study, StudentID, Status) VALUES (@FName, @LName, @GPA, @Study, @StudentID, @Status)", con))
+                    {
+                        command.Parameters.Add(new SqlParameter("FName", tempFirstName));
+                        command.Parameters.Add(new SqlParameter("LName", tempLastName));
+                        command.Parameters.Add(new SqlParameter("GPA", tempGPA));
+                        command.Parameters.Add(new SqlParameter("Study", tempStudy));
+                        command.Parameters.Add(new SqlParameter("StudentID", tempStudentNum));
+                        command.Parameters.Add(new SqlParameter("Status", tempStatus));
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch(Exception es)
+                {
+                    throw es;
+                }
+                finally
+                {
+                    con.Close();
+                }
+
+
+
+            }
+            
+            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString1))
+            {
+                con.Open();
+                try
+                {
+                    foreach (Course tempCourse in tempCourses)
+                    {
+                        using (SqlCommand command = new SqlCommand(
+                    "INSERT INTO EnrolledCourses (StudentId, CourseId, CourseGrade) VALUES (@StudentId, @CourseId, @CourseGrade)", con))
+                        {
+                            command.Parameters.Add(new SqlParameter("StudentId", tempStudentId));
+                            command.Parameters.Add(new SqlParameter("CourseId", tempCourse.CourseId));
+                            command.Parameters.Add(new SqlParameter("CourseGrade",tempCourse.GPA));
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                    
+                }
+                catch (Exception es)
+                {
+                    throw es;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+        }
+
+        public int getLastStudentId()
+        {
+            //string command = "SELECT MAX(id) FROM Student";
+            int lastID = 0;
+
+            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString1))
+            {
+                con.Open();
+                try
+                {
+                    using (SqlCommand command = new SqlCommand("SELECT MAX(id) FROM Student", con))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            lastID = reader.GetInt32(0);
+                        }
+                    }
+
+
+                }
+                catch (Exception es)
+                {
+                    throw es;
+                }
+                finally
+                {
+                    con.Close();
+                }
+
+            }
+            return 0;
         }
 
 

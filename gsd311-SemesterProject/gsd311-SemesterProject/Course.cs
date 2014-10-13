@@ -8,10 +8,24 @@ namespace gsd311_SemesterProject
 {
     public class Course
     {
+        private int _courseId;
         private string _courseName;
         private double _GPA;
         private int _creditHours;
         private string _courseNum;
+
+        public int CourseId
+        {
+            get
+            {
+                return this._courseId;
+            }
+            set
+            {
+                this._courseId = value;
+            }
+
+        }
 
         public string CourseName
         {

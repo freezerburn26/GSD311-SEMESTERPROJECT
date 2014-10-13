@@ -91,6 +91,7 @@ namespace gsd311_SemesterProject
         {
             get
             {
+                this.calcGPA();
                 return this._GPA;
             }
             set

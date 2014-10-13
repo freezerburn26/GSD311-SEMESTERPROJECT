@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CourseGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CourseNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CourseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreditHours = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,33 +47,13 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CourseName,
             this.CourseGrade,
-            this.CourseNum,
+            this.CreditHours,
             this.CourseType});
             this.dataGridView1.Location = new System.Drawing.Point(12, 98);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(465, 280);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // CourseName
-            // 
-            this.CourseName.HeaderText = "CourseName";
-            this.CourseName.Name = "CourseName";
-            // 
-            // CourseGrade
-            // 
-            this.CourseGrade.HeaderText = "CourseGrade";
-            this.CourseGrade.Name = "CourseGrade";
-            // 
-            // CourseNum
-            // 
-            this.CourseNum.HeaderText = "CourseNum";
-            this.CourseNum.Name = "CourseNum";
-            // 
-            // CourseType
-            // 
-            this.CourseType.HeaderText = "CourseType";
-            this.CourseType.Name = "CourseType";
             // 
             // textBox1
             // 
@@ -96,6 +76,30 @@
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 3;
             // 
+            // CourseName
+            // 
+            this.CourseName.HeaderText = "CourseName";
+            this.CourseName.Name = "CourseName";
+            this.CourseName.ReadOnly = true;
+            // 
+            // CourseGrade
+            // 
+            this.CourseGrade.HeaderText = "CourseGrade";
+            this.CourseGrade.Name = "CourseGrade";
+            this.CourseGrade.ReadOnly = true;
+            // 
+            // CreditHours
+            // 
+            this.CreditHours.HeaderText = "CreditHours";
+            this.CreditHours.Name = "CreditHours";
+            this.CreditHours.ReadOnly = true;
+            // 
+            // CourseType
+            // 
+            this.CourseType.HeaderText = "CourseType";
+            this.CourseType.Name = "CourseType";
+            this.CourseType.ReadOnly = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,12 +121,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CourseGrade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CourseNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CourseType;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseGrade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreditHours;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseType;
     }
 }
