@@ -21,7 +21,7 @@ namespace gsd311_SemesterProject
             List<Student> studentList = new List<Student>();
             Course[] tempCourses;
             bool tempBool;
-            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString1))
+            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString))
             {
                 con.Open();
                 try
@@ -82,7 +82,7 @@ namespace gsd311_SemesterProject
             Course[] tempCoursesArray;
             List<Course> tempCourses = new List<Course>();
 
-            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString1))
+            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString))
             {
                 con.Open();
                 try
@@ -173,7 +173,7 @@ namespace gsd311_SemesterProject
             Course[] tempArr;
             List<Course> courseList = new List<Course>();
 
-            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString1))
+            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString))
             {
                 con.Open();
                 try
@@ -263,7 +263,7 @@ namespace gsd311_SemesterProject
         public int getTotalStudents()
         {
             int count = 0;
-            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString1))
+            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString))
             {
                 con.Open();
                 try
@@ -312,7 +312,7 @@ namespace gsd311_SemesterProject
             int tempStudentId = tempStudent.StudentId;
             
 
-            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString1))
+            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString))
             {
                 con.Open();
                 try
@@ -342,7 +342,7 @@ namespace gsd311_SemesterProject
 
             }
             
-            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString1))
+            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString))
             {
                 con.Open();
                 try
@@ -377,7 +377,7 @@ namespace gsd311_SemesterProject
         /// <param name="tempStudent">The student you wish to update.</param>
         public void updateStudentInfo(Student tempStudent)
         {
-            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString1))
+            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString))
             {
                 con.Open();
                 try
@@ -446,7 +446,7 @@ namespace gsd311_SemesterProject
             //string command = "SELECT MAX(id) FROM Student";
             int lastID = 0;
 
-            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString1))
+            using (SqlConnection con = new SqlConnection(Properties.Settings.Default.testConnectionString))
             {
                 con.Open();
                 try
