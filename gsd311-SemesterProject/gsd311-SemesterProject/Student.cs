@@ -238,14 +238,22 @@ namespace gsd311_SemesterProject
                 totalCH += tempCourses[i].CreditHours;
                 tempCalc += (tempCourses[i].CreditHours * tempCourses[i].GPA);
             }
-
-            temp = tempCalc / totalCH;
+            if (totalCH > 0)
+            {
+                temp = tempCalc / totalCH;
+            }
+            
             this._GPA = temp;
         }
 
         public List<Course> getCourseList()
         {
             return _courses;
+        }
+
+        public void removeCourseAtIndex(int index)
+        {
+            _courses.RemoveAt(index);
         }
 
 
