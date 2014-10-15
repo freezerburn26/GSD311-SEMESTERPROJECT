@@ -92,6 +92,9 @@ namespace gsd311_SemesterProject
             somethingChanged = true;
             dgvCourses.Rows.RemoveAt(dgvCourses.CurrentCell.RowIndex);
             selectedStudent.removeCourseAtIndex(dgvCourses.CurrentCell.RowIndex);
+            selectedStudent.calcGPA();
+            selectedStudent.eligibleForStudy(selectedStudent.APStudy);
+            writeCousesDGV();
         }
 
         private void writeCousesDGV()
@@ -150,6 +153,8 @@ namespace gsd311_SemesterProject
                 selectedStudent.addCourse(newCoursefrm.returnCourseData());
                 newCoursefrm.Close();
                 //MessageBox.Show("Success!");
+                selectedStudent.calcGPA();
+                selectedStudent.eligibleForStudy(selectedStudent.APStudy);
                 writeCousesDGV();
             }
         }

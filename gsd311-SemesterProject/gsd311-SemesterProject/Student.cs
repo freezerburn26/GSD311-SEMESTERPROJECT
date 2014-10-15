@@ -22,18 +22,7 @@ namespace gsd311_SemesterProject
         private int _commCourses;
         private int _genCourses;
 
-        //public Student(string ID, string FName, string LName, Study nStudy, Course[] nCourses)
-        //{
-        //    _studentId = ID;
-        //    _firstName = FName;
-        //    _lastName = LName;
-        //    _apStudy = nStudy;
 
-        //    this.eligibleForStudy(nStudy);
-
-            
-
-        //}
         public Student()
         {
 
@@ -203,19 +192,19 @@ namespace gsd311_SemesterProject
             {
                 _eligable = false;
             }
-            else if(checkStudy.MathSciCourses >= _mathSciCourses)
+            else if(checkStudy.MathSciCourses > _mathSciCourses)
             {
                 _eligable = false;
             }
-            else if (checkStudy.CommCourses >= _commCourses)
+            else if (checkStudy.CommCourses > _commCourses)
             {
                 _eligable = false;
             }
-            else if (checkStudy.CoreCourses >= _coreCourses)
+            else if (checkStudy.CoreCourses > _coreCourses)
             {
                 _eligable = false;
             }
-            else if (checkStudy.GeneralCourses >= _genCourses)
+            else if (checkStudy.GeneralCourses > _genCourses)
             {
                 _eligable = false;
             }

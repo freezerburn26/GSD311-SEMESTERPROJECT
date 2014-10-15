@@ -71,6 +71,7 @@ namespace gsd311_SemesterProject
             }
             else if (dr == DialogResult.OK)
             {
+                writeStudentDGV();
                 editStudentForm.Close();
                 //MessageBox.Show("Success!");
             }
