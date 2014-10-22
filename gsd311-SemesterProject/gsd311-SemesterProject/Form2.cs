@@ -47,7 +47,10 @@ namespace gsd311_SemesterProject
         {
             //initialize DGVCourses
             writeCousesDGV();
-            
+            this.Width = 850;
+            this.Height = 525;
+
+
 
         }
 
@@ -91,7 +94,7 @@ namespace gsd311_SemesterProject
         {
             somethingChanged = true;
             dgvCourses.Rows.RemoveAt(dgvCourses.CurrentCell.RowIndex);
-            selectedStudent.removeCourseAtIndex(dgvCourses.CurrentCell.RowIndex);
+            selectedStudent.RemoveCourseAtIndex(dgvCourses.CurrentCell.RowIndex);
             selectedStudent.calcGPA();
             selectedStudent.eligibleForStudy(selectedStudent.APStudy);
             writeCousesDGV();
@@ -104,7 +107,7 @@ namespace gsd311_SemesterProject
             selectedStudent.calcGPA();
             selectedStudent.eligibleForStudy(selectedStudent.APStudy);
 
-            Course[] tempCourses = selectedStudent.getCourseList().ToArray();
+            Course[] tempCourses = selectedStudent.GetCourseList().ToArray();
             foreach (Course temp in tempCourses)
             {
                 string type = null;
@@ -134,6 +137,11 @@ namespace gsd311_SemesterProject
             txtCreditHours.Text = selectedStudent.CreditHours.ToString();
             txtFirstName.Text = selectedStudent.FirstName;
             txtLastName.Text = selectedStudent.LastName;
+            if (txtEligible.Text == "False")
+            {
+                toolStripStatusLabel1.Text = "Ineligable for study: " + selectedStudent.ReasonIneligable;
+            }
+            
         }
 
         private void btnAddCourse_Click(object sender, EventArgs e)

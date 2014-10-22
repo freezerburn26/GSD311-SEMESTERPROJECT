@@ -306,7 +306,7 @@ namespace gsd311_SemesterProject
             string tempStudy = tempStudent.APStudy.ToString();
             string tempStudentNum = tempStudent.StudentNum;
             string tempStatus = tempStudent.Eligable.ToString();
-            Course[] tempCourses = tempStudent.getCourseList().ToArray();
+            Course[] tempCourses = tempStudent.GetCourseList().ToArray();
             
             int studentCount = getTotalStudents();
             int tempStudentId = tempStudent.StudentId;
@@ -409,7 +409,7 @@ namespace gsd311_SemesterProject
                         command.Parameters.Add(new SqlParameter("Status", tempStudent.Eligable));
                         command.ExecuteNonQuery();
                     }
-                    foreach (Course tempCourse in tempStudent.getCourseList().ToArray())
+                    foreach (Course tempCourse in tempStudent.GetCourseList().ToArray())
                     {
                         using (SqlCommand command = new SqlCommand(
                     "INSERT INTO EnrolledCourses (StudentId, CourseId, CourseGrade) VALUES (@StudentId, @CourseId, @CourseGrade)", con))

@@ -21,6 +21,7 @@ namespace gsd311_SemesterProject
         private int _coreCourses;
         private int _commCourses;
         private int _genCourses;
+        public string ReasonIneligable = "";
 
 
         public Student()
@@ -155,6 +156,7 @@ namespace gsd311_SemesterProject
 
         public void eligibleForStudy(Study checkStudy)
         {
+            ReasonIneligable = "";
             Course[] nCourses = _courses.ToArray();
             _creditHours = 0;
             _commCourses = 0;
@@ -186,26 +188,32 @@ namespace gsd311_SemesterProject
 
             if (_GPA < 3.5)
             {
+                ReasonIneligable += " GPA too low. ";
                 _eligable = false;
             }
             else if (_creditHours < 50)
             {
+                ReasonIneligable += " Not Enough Credit Hours. ";
                 _eligable = false;
             }
             else if(checkStudy.MathSciCourses > _mathSciCourses)
             {
+                ReasonIneligable += " Not Enough MathSci Courses. ";
                 _eligable = false;
             }
             else if (checkStudy.CommCourses > _commCourses)
             {
+                ReasonIneligable += " Not Enough Communication Courses. ";
                 _eligable = false;
             }
             else if (checkStudy.CoreCourses > _coreCourses)
             {
+                ReasonIneligable += " Not Enough Core Courses. ";
                 _eligable = false;
             }
             else if (checkStudy.GeneralCourses > _genCourses)
             {
+                ReasonIneligable += " Not Enough General Courses. ";
                 _eligable = false;
             }
             else
@@ -235,12 +243,12 @@ namespace gsd311_SemesterProject
             this._GPA = temp;
         }
 
-        public List<Course> getCourseList()
+        public List<Course> GetCourseList()
         {
             return _courses;
         }
 
-        public void removeCourseAtIndex(int index)
+        public void RemoveCourseAtIndex(int index)
         {
             _courses.RemoveAt(index);
         }
