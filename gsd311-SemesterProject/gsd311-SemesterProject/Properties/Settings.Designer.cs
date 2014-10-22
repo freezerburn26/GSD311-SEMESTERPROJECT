@@ -26,8 +26,8 @@ namespace gsd311_SemesterProject.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=teamproject.dnsget.org;Initial Catalog=test;User ID=sa;Password=baker" +
-            "Student1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.223.26.249;Initial Catalog=test;User ID=sa;Password=bakerStudent1" +
+            "")]
         public string testConnectionString {
             get {
                 return ((string)(this["testConnectionString"]));

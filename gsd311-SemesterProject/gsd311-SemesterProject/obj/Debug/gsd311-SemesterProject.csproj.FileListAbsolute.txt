@@ -20,3 +20,5 @@ C:\Projects\School\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-Semester
 C:\Projects\School\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\obj\Debug\gsd311-SemesterProject.pdb
 C:\Projects\School\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\obj\Debug\gsd311_SemesterProject.addCourseForm.resources
 C:\Projects\School\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\obj\Debug\gsd311_SemesterProject.addNewStudent.resources
+C:\Projects\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\obj\Debug\gsd311_SemesterProject.addCourseForm.resources
+C:\Projects\GSD311\SemesterProject\gsd311-SemesterProject\gsd311-SemesterProject\obj\Debug\gsd311_SemesterProject.addNewStudent.resources
