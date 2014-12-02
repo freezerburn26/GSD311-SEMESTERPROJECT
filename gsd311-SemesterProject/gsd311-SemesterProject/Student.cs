@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdvanceProgram;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace gsd311_SemesterProject
 {
-    public class Student
+    public class Student : IStudent
     {
         private int _studentId;
         private string _studentNum;
@@ -22,6 +23,9 @@ namespace gsd311_SemesterProject
         private int _commCourses;
         private int _genCourses;
         public string ReasonIneligable = "";
+        private string _SSN;
+        List<ICourse> icourses = new List<ICourse>();
+
 
 
         public Student()
@@ -254,5 +258,53 @@ namespace gsd311_SemesterProject
         }
 
 
+
+        public List<ICourse> CourseList()
+        {
+            icourses = new List<ICourse>();
+            
+            foreach (var course in _courses)
+            {
+                icourses.Add(course);
+            }
+            return icourses;
+        }
+
+        public string Print(PrintType printSelection)
+        {
+            icourses = new List<ICourse>();            
+            foreach (var course in _courses)
+            {
+                icourses.Add(course);
+            }
+            string temp;
+            if (printSelection == PrintType.ShortView)
+            {
+                temp = string.Join(",", _firstName, _lastName);
+                return temp;
+            }
+            else if (printSelection == PrintType.StudentView)
+            {
+                temp = string.Join(",", _firstName, _lastName, _SSN, _GPA);
+                return temp;
+            }
+            else
+            {
+                int i = 0;
+                string[] values = new string[(icourses.Count * 2)];
+                temp = string.Join(",", _firstName, _lastName, _SSN, _GPA);
+                foreach (ICourse icourse in icourses)
+                {
+                    values[i] = 
+                }
+            }
+        }
+
+        public void appendCourses(List<ICourse> courses)
+        {
+           foreach(var course in courses){
+               icourses.Add(course);
+           }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdvanceProgram;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace gsd311_SemesterProject
 {
-    public class Course
+    public class Course : ICourse
     {
         private int _courseId;
         private string _courseName;
@@ -75,7 +76,12 @@ namespace gsd311_SemesterProject
             }
         }
 
-        
 
+
+
+        public void Print()
+        {
+            Console.WriteLine("Course: {0}  GPA: {1}", _courseName, _GPA);
+        }
     }
 }
