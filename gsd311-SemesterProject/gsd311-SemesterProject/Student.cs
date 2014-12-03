@@ -272,11 +272,7 @@ namespace gsd311_SemesterProject
 
         public string Print(PrintType printSelection)
         {
-            icourses = new List<ICourse>();            
-            foreach (var course in _courses)
-            {
-                icourses.Add(course);
-            }
+            
             string temp;
             if (printSelection == PrintType.ShortView)
             {
@@ -293,11 +289,12 @@ namespace gsd311_SemesterProject
                 int i = 0;
                 string[] values = new string[(icourses.Count * 2)];
                 temp = string.Join(",", _firstName, _lastName, _SSN, _GPA);
-                foreach (ICourse icourse in icourses)
+                foreach (ICourse icourse in _courses)
                 {
-                    values[i] = 
+                    temp += Environment.NewLine + icourse;
                 }
-            }
+                return temp;
+            }            
         }
 
         public void appendCourses(List<ICourse> courses)

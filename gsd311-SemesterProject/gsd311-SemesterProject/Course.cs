@@ -79,9 +79,14 @@ namespace gsd311_SemesterProject
 
 
 
-        public void Print()
+        public override void Print()
         {
             Console.WriteLine("Course: {0}  GPA: {1}", _courseName, _GPA);
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0},{1}", _courseName, _GPA);
         }
     }
 }
