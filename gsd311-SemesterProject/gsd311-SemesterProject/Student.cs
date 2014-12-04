@@ -33,6 +33,13 @@ namespace gsd311_SemesterProject
 
         }
 
+        public Student(string FirstName, string LastName, string SSN)
+        {
+            _firstName = FirstName;
+            _lastName = LastName;
+            _SSN = SSN;
+        }
+
         public int StudentId
         {
             get
@@ -97,7 +104,7 @@ namespace gsd311_SemesterProject
         public int CreditHours
         {
             get
-            { 
+            {
                 return this._creditHours;
             }
             set
@@ -200,7 +207,7 @@ namespace gsd311_SemesterProject
                 ReasonIneligable += " Not Enough Credit Hours. ";
                 _eligable = false;
             }
-            else if(checkStudy.MathSciCourses > _mathSciCourses)
+            else if (checkStudy.MathSciCourses > _mathSciCourses)
             {
                 ReasonIneligable += " Not Enough MathSci Courses. ";
                 _eligable = false;
@@ -234,7 +241,7 @@ namespace gsd311_SemesterProject
             double tempCalc = 0;
             Course[] tempCourses = _courses.ToArray();
 
-            for(int i = 0; i < tempCourses.Length; i++)
+            for (int i = 0; i < tempCourses.Length; i++)
             {
                 totalCH += tempCourses[i].CreditHours;
                 tempCalc += (tempCourses[i].CreditHours * tempCourses[i].GPA);
@@ -243,7 +250,7 @@ namespace gsd311_SemesterProject
             {
                 temp = tempCalc / totalCH;
             }
-            
+
             this._GPA = temp;
         }
 
@@ -262,7 +269,7 @@ namespace gsd311_SemesterProject
         public List<ICourse> CourseList()
         {
             icourses = new List<ICourse>();
-            
+
             foreach (var course in _courses)
             {
                 icourses.Add(course);
@@ -272,7 +279,16 @@ namespace gsd311_SemesterProject
 
         public string Print(PrintType printSelection)
         {
-            
+            double tempGPA = 0;
+            int count = 0;
+            double sum = 0;
+            foreach (Course icourse in icourses)
+            {
+                sum += icourse.GPA;
+                count++;
+            }
+            tempGPA = sum / count;
+
             string temp;
             if (printSelection == PrintType.ShortView)
             {
@@ -281,27 +297,28 @@ namespace gsd311_SemesterProject
             }
             else if (printSelection == PrintType.StudentView)
             {
-                temp = string.Join(",", _firstName, _lastName, _SSN, _GPA);
+                temp = string.Join(",", _firstName, _lastName, _SSN, tempGPA);
                 return temp;
             }
             else
             {
-                int i = 0;
-                string[] values = new string[(icourses.Count * 2)];
-                temp = string.Join(",", _firstName, _lastName, _SSN, _GPA);
-                foreach (ICourse icourse in _courses)
+
+                temp = string.Join(",", _firstName, _lastName, _SSN, tempGPA);
+                temp += ",";
+                foreach (Course icourse in icourses)
                 {
-                    temp += Environment.NewLine + icourse;
+                    temp += Environment.NewLine + icourse.CourseName + "," + icourse.GPA;
                 }
                 return temp;
-            }            
+            }
         }
 
         public void appendCourses(List<ICourse> courses)
         {
-           foreach(var course in courses){
-               icourses.Add(course);
-           }
+            foreach (var course in courses)
+            {
+                icourses.Add(course);
+            }
         }
     }
 }

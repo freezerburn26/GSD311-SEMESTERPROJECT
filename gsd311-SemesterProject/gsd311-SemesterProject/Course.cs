@@ -54,7 +54,7 @@ namespace gsd311_SemesterProject
 
         public int CreditHours
         {
-            get 
+            get
             {
                 return this._creditHours;
             }
@@ -76,10 +76,22 @@ namespace gsd311_SemesterProject
             }
         }
 
+        public Course(string CourseName, double GPA, int CreditHours)
+        {
+            _courseName = CourseName;
+            _GPA = GPA;
+            _creditHours = CreditHours;
+        }
+
+        public Course()
+        {
+
+        }
 
 
 
-        public override void Print()
+
+        public void Print()
         {
             Console.WriteLine("Course: {0}  GPA: {1}", _courseName, _GPA);
         }
